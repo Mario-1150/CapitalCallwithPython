@@ -1,0 +1,89 @@
+import numpy as np
+class InvestorBlock: #Creating InvestorBlock as base class
+    def investordetail(self): #Method used once as reference header in the first derived class
+        print("Blackstone Capital Call of $15 Million\nSimple Blockchain Simulation of Capital Accumulation\n")
+
+#Outlining our transaction count & element data
+arr = np.array(['Schwarzman','Gray','Ackman','Dalio','Simons','SS','JG','BA','RD','JS'])
+trx = ['1','2','3','4','5']
+REQUIRED_CAPITAL = 15000000
+
+#Creating a dictionary for the contribution amounts
+cf_ledger = {
+    1: 2000000,
+    2: 6000000,
+    3: 3000000,
+    4: 2000000,
+    5: 2000000,
+}
+
+#Running a for loop to aggregate our contributions as transactions occur
+def add_value(dictionary, end_key):
+    total = 0
+    for key in dictionary:
+        try:
+            if int(key) <= end_key:
+                total += dictionary[key]
+        except ValueError:
+                print("Error in code")
+    return total
+av = add_value(cf_ledger, 1)
+av2 = add_value(cf_ledger, 2)
+av3 = add_value(cf_ledger, 3)
+av4 = add_value(cf_ledger, 4)
+av5 = add_value(cf_ledger, 5)
+
+#First class block takes in two attributes: cash flow and total cash flow
+class limitedpartner1block(InvestorBlock):
+    def initialinvestment(self, cash_flow, total_cash_flow):
+        self.cash_flow = cash_flow
+        self.total_cash_flow = total_cash_flow
+        print("Limited Partner:", arr[0], "has contributed",cf_ledger[1],"of the",REQUIRED_CAPITAL,"of Capital needed for a total of",total_cash_flow)
+investor1 = limitedpartner1block()
+investor1.investordetail()
+investor1.initialinvestment(cf_ledger[1], av)
+
+#Second block follows a similar class block strucutre but no longer is part of our inheritance structure (No longer a derived class)
+class limitedpartner2block(InvestorBlock):
+    def initialinvestment(self, cash_flow2, total_cash_flow2):
+        self.cash_flow2 = cash_flow2
+        self.total_cash_flow2 = total_cash_flow2
+        print("\n\nLimited Partner:", arr[1], "has contributed",cf_ledger[2],"of the",REQUIRED_CAPITAL,"of Capital needed for a total of",total_cash_flow2)
+investor2 = limitedpartner2block()
+investor2.initialinvestment(cf_ledger[2], av2)
+
+#Third block continues the same process with identical attributes
+class limitedpartner3block(InvestorBlock):
+    def initialinvestment(self, cash_flow3, total_cash_flow3):
+        self.cash_flow3 = cash_flow3
+        self.total_cash_flow3 = total_cash_flow3
+        print("\n\nLimited Partner:", arr[2], "has contributed",cf_ledger[3],"of the",REQUIRED_CAPITAL,"of Capital needed for a total of",total_cash_flow3)
+investor3 = limitedpartner3block()
+investor3.initialinvestment(cf_ledger[3], av3)
+
+#Likewise for the fourth
+class limitedpartner4block(InvestorBlock):
+    def initialinvestment(self, cash_flow4, total_cash_flow4):
+        self.cash_flow4 = cash_flow4
+        self.total_cash_flow4 = total_cash_flow4
+        print("\n\nLimited Partner:", arr[3], "has contributed",cf_ledger[4],"of the",REQUIRED_CAPITAL,"of Capital needed for a total of",total_cash_flow4)
+investor4 = limitedpartner4block()
+investor4.initialinvestment(cf_ledger[4], av4)
+
+#And the fifth
+class limitedpartner5block(InvestorBlock):
+    def initialinvestment(self, cash_flow5, total_cash_flow5):
+        self.cash_flow5 = cash_flow5
+        self.total_cash_flow5 = total_cash_flow5
+        print("\n\nLimited Partner:", arr[4],"has contributed",cf_ledger[5],"of the",REQUIRED_CAPITAL,"of Capital needed for a total of",total_cash_flow5)
+investor5 = limitedpartner5block()
+investor5.initialinvestment(cf_ledger[5], av5)
+
+#Finally running a boolean to review if we have met our capital call or not
+def is_valid():
+    if av5 >= REQUIRED_CAPITAL:
+        print("\nCapital Call is complete. The cash flows are sufficient.")
+    elif av5 < REQUIRED_CAPITAL:
+        print('Not sufficient capital. Will need to raise more!')
+    return
+is_valid()
