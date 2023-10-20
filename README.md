@@ -1,4 +1,2 @@
-# CapitalCallwithPython
-The Purpose of this code is to develop an intuitive understanding of Object-Oriented Programming in Python with a case of Inheritance in the first few lines of the code.
-It serves as an application of simple financial related topics: Capital Call and Private Equity Limited Partner contributions to a General Partner fund.
-
+# Capital Call with Python
+This code serves as a way to develop an intuitive understanding of Object-Oriented Programming in Python. More specifically, inheritance is used in the first block of the objects after our class is defined.The application takes a look at a straightforward capital call in the private equity world. If we can imagine a set of investors providing capital when needed or called by the general partner of a private equity fund then we have a set dictionary that allows us to view the transactions in a set of blocks.
